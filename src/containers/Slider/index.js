@@ -10,15 +10,21 @@ const Slider = () => {
   const byDateDesc = data?.focus.sort((evtA, evtB) =>
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
+  
   const nextCard = () => {
-    setTimeout(
-      () => setIndex(index < byDateDesc.length ? index + 1 : 0),
+     const timer  = setTimeout(
+      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), // taille -1 car state mon a 3 (y'a pas mieux à faire ?)
       5000
     );
+    return () => {
+      clearTimeout(timer)
+    }
   };
+
   useEffect(() => {
     nextCard();
-  });
+  }); // faut pas le tableau ici ? 
+
   return (
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
@@ -40,12 +46,12 @@ const Slider = () => {
           </div>
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
-              {byDateDesc.map((_, radioIdx) => (
+              {byDateDesc.map((el, radioIdx) => (
                 <input
-                  key={`${event.id}`}
+                  key={el.id}
                   type="radio"
                   name="radio-button"
-                  checked={idx === radioIdx}
+                  checked={index === radioIdx}
                 />
               ))}
             </div>
