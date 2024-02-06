@@ -18,6 +18,7 @@ const Select = ({
   const changeValue = (newValue) => {
     onChange(newValue);
     setValue(newValue);
+    // oublie de newValue
     setCollapsed(newValue);
   };
   return (

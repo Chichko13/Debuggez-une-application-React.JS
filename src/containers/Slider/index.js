@@ -13,7 +13,7 @@ const Slider = () => {
   
   const nextCard = () => {
      const timer  = setTimeout(
-      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), // taille -1 car state mon a 3 (y'a pas mieux à faire ?)
+      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0), // taille -1 car state monte a 3
       5000
     );
     return () => {
@@ -48,11 +48,12 @@ const Slider = () => {
           <div className="SlideCard__paginationContainer">
             <div className="SlideCard__pagination">
               {byDateDesc.map((el, radioIdx) => (
+                // modification de la key et checked : idx par index
                 <input
                   key={el.title}
                   type="radio"
                   name="radio-button"
-                  checked={index === radioIdx}
+                  checked={index === radioIdx} 
                   readOnly
                 />
               ))}
