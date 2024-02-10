@@ -3,6 +3,11 @@ import PropTypes from "prop-types";
 import "./style.scss";
 
 const ModalEvent = ({ event }) => (
+ /* const date = new Date(event.date) 
+  const options = { day: 'numeric', month: 'long' };
+  const formattedDate = date.toLocaleDateString('fr-FR', options);
+*/
+
     <div className="ModalEvent">
       <div className="ModalEvent__imageContainer">
         <img
@@ -30,7 +35,7 @@ const ModalEvent = ({ event }) => (
         ))}
       </div>
     </div>
-  );
+)
 
 ModalEvent.propTypes = {
   // eslint-disable-next-line react/forbid-prop-types

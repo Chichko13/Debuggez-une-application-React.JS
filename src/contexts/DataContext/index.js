@@ -24,7 +24,7 @@ export const DataProvider = ({ children }) => {
     try {
       const loadingData = await api.loadData()
       setData(loadingData);
-      setLast(loadingData?.events[loadingData.events.length - 1]) //Récupére le dernier élément
+      setLast(loadingData?.events[loadingData.events.length - 1]) // Récupére le dernier élément
     } catch (err) {
       setError(err);
     }    
